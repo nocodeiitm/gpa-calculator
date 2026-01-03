@@ -226,4 +226,31 @@ input[type="number"]:focus, select:focus {
         justify-self: end;
     }
 }
+.top-logos {
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+
+.logo {
+    height: 55px;
+}
+
+.left-logo {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+.right-logo {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        height: 42px;
+    }
+}
 
