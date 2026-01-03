@@ -336,12 +336,13 @@ input[type="number"]:focus, select:focus {
     }
 }
 
-.initiative-text {
+header .initiative-text {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     font-weight: 800;
-    color: #ffffff; /* pure white */
+    color: #ffffff !important;
     letter-spacing: 0.6px;
     text-transform: uppercase;
 }
+
 
