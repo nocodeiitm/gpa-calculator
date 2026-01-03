@@ -17,7 +17,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #5a3eb0 0%, #61369d 100%); /* slightly darker purple */
+     background: #1f062e;
     color: var(--text-main);
     line-height: 1.5;
     padding: 1.5rem 1rem;
