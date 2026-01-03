@@ -28,15 +28,16 @@ body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(
         135deg,
-        #5b2d8b 0%,
-        #674A8E 50%,
-        #4a1f73 100%
+        #3b1366 0%,
+        #2e0f52 50%,
+        #240a3d 100%
     );
     color: var(--text-main);
     line-height: 1.5;
     padding: 2rem 1rem;
     min-height: 100vh;
 }
+
 
 
 .container {
