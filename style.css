@@ -15,16 +15,9 @@
     padding: 0;
 }
 
-/*body {
-    font-family: 'Inter', sans-serif;
-    background: #1f062e;
-    color: var(--text-main);
-    line-height: 1.5;
-    padding: 1.5rem 1rem;
-    min-height: 100vh;
-}*/
 
-body {
+
+/*body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(
         135deg,
@@ -36,7 +29,22 @@ body {
     line-height: 1.5;
     padding: 2rem 1rem;
     min-height: 100vh;
+}*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #441875 0%,
+        #36145f 50%,
+        #2b0f4a 100%
+    );
+    color: var(--text-main);
+    line-height: 1.5;
+    padding: 2rem 1rem;
+    min-height: 100vh;
 }
+
 
 
 
