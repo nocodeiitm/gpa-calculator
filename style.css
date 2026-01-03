@@ -1,8 +1,7 @@
 :root {
     --primary-color: #4f46e5;
     --primary-hover: #4338ca;
-    --bg-gradient-start: #3b0a6b;
-    --bg-gradient-end: #1e034e;
+    --bg-color: #f3f4f6;
     --card-bg: #ffffff;
     --text-main: #111827;
     --text-secondary: #4b5563;
@@ -18,7 +17,12 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #674A8E;
+    background: linear-gradient(
+        135deg,
+        #3b1366 0%,
+        #2e0f52 50%,
+        #240a3d 100%
+    );
     color: var(--text-main);
     line-height: 1.5;
     padding: 2rem 1rem;
@@ -26,122 +30,85 @@ body {
 }
 
 
-
-/* --- Top Logos --- */
-.top-logos {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    margin-bottom: 2rem;
+.container {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.logo {
-    height: 100px;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-}
-
-.left-logo {
-    position: absolute;
-    left: 40px;
-    top: 10px;
-}
-
-.right-logo {
-    position: absolute;
-    right: 40px;
-    top: 10px;
-}
-
-/* --- Header --- */
 header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: white;
     margin-bottom: 0.25rem;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
+/* Line below heading */
 header h1::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background-color: white;
-    margin: 10px auto 0;
+    margin: 8px auto 0;
     border-radius: 2px;
 }
 
 header p {
-    color: rgba(255,255,255,0.9);
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
 }
 
-/* --- Card Design --- */
 .card {
     background: var(--card-bg);
-    border-radius: 20px;
-    padding: 2rem;
-    max-width: 500px;
-    margin: 2rem 0;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    border-top: 6px solid var(--primary-color);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-}
-
-/* Section Titles */
-.section-title {
-    font-size: 1.3rem;
-    font-weight: 600;
+    border-radius: 16px;
+    padding: 1.25rem;
     margin-bottom: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid var(--primary-color); /* top accent line */
+}
+
+h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.875rem;
     color: var(--text-main);
 }
 
-/* Input Groups */
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
 }
 
 .input-group label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.375rem;
     color: var(--text-secondary);
 }
 
-input[type="text"], input[type="number"], select {
+input[type="number"], select {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.625rem 0.75rem;
     border: 2px solid var(--border-color);
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
     background-color: #fafafa;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="number"]:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(79,70,229,0.3);
-    background-color: #fff;
-}
-
-/* Remove number input spinners */
+/* Remove spinner buttons from number inputs */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -153,32 +120,76 @@ input[type="number"] {
     appearance: textfield;
 }
 
-/* Buttons */
+input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    background-color: white;
+}
+
+.course-planner .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.875rem;
+}
+
+.course-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.75rem;
+    align-items: end;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+.course-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.remove-btn {
+    background: #fee2e2;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.375rem 0.5rem;
+    line-height: 1;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.remove-btn:hover {
+    background: #dc2626;
+    color: white;
+}
+
 .btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 0.75rem 1.25rem;
+    padding: 0.625rem 1.25rem;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    margin-top: 1rem;
+    transition: all 0.2s;
 }
 
 .btn.primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    box-shadow: 0 6px 18px rgba(102,126,234,0.4);
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .btn.primary:hover {
-    transform: translateY(-2px) scale(1.05);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    box-shadow: 0 10px 25px rgba(102,126,234,0.5);
+    transform: translateY(-2px) scale(1.02); /* added subtle scale */
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
 }
 
 .btn.secondary {
@@ -186,7 +197,7 @@ input[type="number"] {
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
     padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 }
 
 .btn.secondary:hover {
@@ -194,34 +205,12 @@ input[type="number"] {
     color: white;
 }
 
-/* Remove buttons hover bounce for cleaner feel */
-.remove-btn:hover {
-    background-color: #dc2626;
-    color: white;
-}
-
-/* Course Planner Grid */
-.course-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
-    gap: 0.75rem;
-    align-items: end;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(229,231,235,0.6);
-}
-
-.course-row:last-child {
-    border-bottom: none;
-}
-
-/* Result Card */
 .result {
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.25rem;
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    border-radius: 16px;
+    border-radius: 12px;
     border: 2px solid white;
 }
 
@@ -229,6 +218,24 @@ input[type="number"] {
     display: none;
 }
 
+.result .label {
+    display: block;
+    color: #1e293b;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result .value {
+    display: block;
+    color: #0f172a;
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+/* --- Result headings vertical line --- */
 .result-heading {
     position: relative;
     padding-left: 25px;
@@ -248,46 +255,65 @@ input[type="number"] {
     border-radius: 2px;
 }
 
-.result .label {
-    display: block;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.result .value {
-    display: block;
-    color: var(--primary-color);
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-/* Section Divider */
+/* --- Optional section divider --- */
 .section-divider {
     height: 2px;
     background: linear-gradient(to right, var(--primary-color), #ffffff);
-    margin: 2rem 0;
+    margin: 20px 0;
 }
 
-/* --- Responsive --- */
+/* --- Top logos --- */
+.top-logos {
+    position: relative;
+    width: 100%;
+    height: 100px; /* give more room for bigger logos */
+}
+
+.logo {
+    height: 100px; /* increase logo size */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.left-logo {
+    position: absolute;
+    left: 40px;  /* move slightly inward from corner */
+    top: 10px;   /* keep vertically aligned */
+}
+
+.right-logo {
+    position: absolute;
+    right: 40px; /* move slightly inward from corner */
+    top: 10px;   /* keep vertically aligned */
+}
+
 @media (max-width: 600px) {
     .logo {
-        height: 50px;
+        height: 50px; /* scales down on mobile */
     }
-
-    .left-logo { left: 20px; }
-    .right-logo { right: 20px; }
-
-    .card {
-        padding: 1.5rem;
-        margin: 1rem 10px;
+    
+    .left-logo {
+        left: 20px; /* less padding on mobile */
+    }
+    
+    .right-logo {
+        right: 20px; /* less padding on mobile */
     }
 
     .course-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
+    }
+    
+    .remove-btn {
+        justify-self: end;
+    }
+
+    .card {
+        padding: 20px;
+        margin: 20px 10px;
     }
 }
