@@ -15,14 +15,29 @@
     padding: 0;
 }
 
-body {
+/*body {
     font-family: 'Inter', sans-serif;
     background: #1f062e;
     color: var(--text-main);
     line-height: 1.5;
     padding: 1.5rem 1rem;
     min-height: 100vh;
+}*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #5b2d8b 0%,
+        #674A8E 50%,
+        #4a1f73 100%
+    );
+    color: var(--text-main);
+    line-height: 1.5;
+    padding: 2rem 1rem;
+    min-height: 100vh;
 }
+
 
 .container {
     max-width: 700px;
