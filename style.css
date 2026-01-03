@@ -17,18 +17,12 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(
-        135deg,
-        #3b1366 0%,
-        #2e0f52 50%,
-        #240a3d 100%
-    );
+    background: linear-gradient(135deg, #5a3eb0 0%, #61369d 100%); /* slightly darker purple */
     color: var(--text-main);
     line-height: 1.5;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     min-height: 100vh;
 }
-
 
 .container {
     max-width: 700px;
