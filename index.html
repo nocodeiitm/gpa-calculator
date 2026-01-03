@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GPA Calculator</h1>
+            <p>Calculate your projected GPA based on current and future performance.</p>
+        </header>
+
+        <div class="card current-stats">
+            <h2>Current Status</h2>
+            <div class="input-group">
+                <label for="current-gpa">Current GPA (CGPA)</label>
+                <input type="number" id="current-gpa" placeholder="e.g. 8.5" step="0.01" min="0" max="10">
+            </div>
+            <div class="input-group">
+                <label for="completed-credits">Completed Credits</label>
+                <input type="number" id="completed-credits" placeholder="e.g. 60" min="0">
+            </div>
+        </div>
+
+        <div class="card course-planner">
+            <div class="course-header">
+                <h2>Course Planner</h2>
+                <button id="add-course-btn" class="btn secondary">+ Add Course</button>
+            </div>
+            <div id="course-list">
+                <!-- Courses will be added here via JS -->
+            </div>
+        </div>
+
+        <div class="card result-card">
+            <button id="calculate-btn" class="btn primary">Calculate Projected GPA</button>
+            <div id="result" class="result hidden">
+                <span class="label">Projected GPA:</span>
+                <span id="gpa-value" class="value">0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
