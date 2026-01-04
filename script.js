@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculate-btn');
     const resultDiv = document.getElementById('result');
     const gpaValueSpan = document.getElementById('gpa-value');
+    const sgpaValueSpan = document.getElementById('sgpa-value');
 
     // Grade mapping based on user request (assuming 'A' was omitted in the list of 5 letters but needed for the 6 numbers)
     // User listed: S, B, C, D, E (5 letters)
@@ -32,16 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function addCourseRow() {
         const row = document.createElement('div');
         row.className = 'course-row';
-        
+
         // Credits Input
         const creditsGroup = document.createElement('div');
         creditsGroup.className = 'input-group';
         creditsGroup.style.marginBottom = '0';
-        
+
         const creditsLabel = document.createElement('label');
         creditsLabel.textContent = 'Credits';
         creditsGroup.appendChild(creditsLabel);
-        
+
         const creditsInput = document.createElement('input');
         creditsInput.type = 'number';
         creditsInput.className = 'course-credits';
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const gradeSelect = document.createElement('select');
         gradeSelect.className = 'course-grade';
-        
+
         // Default option
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
@@ -91,14 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
         row.appendChild(creditsGroup);
         row.appendChild(gradeGroup);
         row.appendChild(removeBtn);
-        
+
         courseList.appendChild(row);
     }
 
     function calculateGPA() {
         const currentGPA = parseFloat(document.getElementById('current-gpa').value);
         const completedCredits = parseFloat(document.getElementById('completed-credits').value);
-        
+
         let totalPoints = 0;
         let totalCredits = 0;
 
@@ -107,6 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
             totalPoints += currentGPA * completedCredits;
             totalCredits += completedCredits;
         }
+
+        const prevPoints = totalPoints;
+        const prevCredits = totalCredits;
 
         // Add projected courses
         const courseRows = document.querySelectorAll('.course-row');
@@ -119,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (creditsStr && gradePointsStr) {
                 const credits = parseFloat(creditsStr);
                 const points = parseFloat(gradePointsStr);
-                
+
                 if (credits > 0) {
                     totalPoints += points * credits;
                     totalCredits += credits;
@@ -133,9 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const projectedGPA = totalPoints / totalCredits;
-        
+
+        let sgpa = 0;
+        const newCredits = totalCredits - prevCredits;
+        if (newCredits > 0) {
+            sgpa = (totalPoints - prevPoints) / newCredits;
+        }
+
         gpaValueSpan.textContent = projectedGPA.toFixed(2);
+
+        if (sgpaValueSpan) {
+            sgpaValueSpan.textContent = sgpa.toFixed(2);
+        }
+
         resultDiv.classList.remove('hidden');
     }
 });
-
