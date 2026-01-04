@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="top-logos">
         <img src="nocode logo.png" alt="NoCode Logo" class="logo left-logo">
@@ -18,10 +20,10 @@
             <h1>GPA Calculator</h1>
             <p>Calculate your projected GPA based on current and future performance.</p>
             <div class="initiative-text">
-                An initiative by AAS team 2025–26
+                An initiative by AAS team 2025-26
             </div>
         </header>
-        
+
 
         <div class="card current-stats">
             <h2>Current Status</h2>
@@ -48,13 +50,19 @@
         <div class="card result-card">
             <button id="calculate-btn" class="btn primary">Calculate Projected GPA</button>
             <div id="result" class="result hidden">
-                <span class="label">Projected GPA:</span>
-                <span id="gpa-value" class="value">0.00</span>
+                <div class="result-row">
+                    <span class="label">Projected GPA:</span>
+                    <span id="gpa-value" class="value">0.00</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">Projected SGPA:</span>
+                    <span id="sgpa-value" class="value">0.00</span>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
